@@ -56,6 +56,31 @@ public class MyArrays {
         }
     }
 
+    public static int[] mergeTwoSortedArrays(int[] array1, int[] array2) {
+        checkNullArg(array1);
+        checkNullArg(array2);
+        int ar1Length = array1.length;
+        int ar2Length = array2.length;
+        if (ar1Length == 0)
+            return array2;
+        if (ar2Length == 0)
+            return array1;
+        int resultLength = ar1Length + ar2Length;
+        int[] result = new int[resultLength];
+        while (resultLength-- > 0) {
+            result[resultLength] = array1[ar1Length - 1] > array2[ar2Length - 1] ? array1[ar1Length-- - 1] : array2[ar2Length-- - 1];
+            if (ar1Length < 1) {
+                System.arraycopy(array2, 0, result, 0, resultLength);
+                break;
+            }
+            if (ar2Length < 1) {
+                System.arraycopy(array1, 0, result, 0, resultLength);
+                break;
+            }
+        }
+        return result;
+    }
+
     private static void checkNullArg(int[] array) {
         if (array == null) {
             throw new IllegalArgumentException("array for sort must be not null");
