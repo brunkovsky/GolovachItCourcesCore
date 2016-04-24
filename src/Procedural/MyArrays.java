@@ -4,6 +4,16 @@ import java.util.Arrays;
 
 public class MyArrays {
 
+    public static void fillRandom(int[][] matrix, int amount) {
+        int columns = matrix[0].length;
+        int rows = matrix.length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = (int) (Math.random() * amount);
+            }
+        }
+    }
+
     public static void bubbleSort(int[] array) {
         checkNullArg(array);
         for (int i = 0; i < array.length; i++) {
@@ -77,6 +87,48 @@ public class MyArrays {
                 System.arraycopy(array1, 0, result, 0, resultLength);
                 break;
             }
+        }
+        return result;
+    }
+
+    public static int[][] multiply(int[][] m1, int[][] m2) {
+        int columns = m1.length;
+        int rows = m2[0].length;
+        int[][] result = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result [i][j] = multiplyVector(getColumn(m2, j), getRow(m1, i));
+            }
+        }
+        return result;
+    }
+
+    private static int[] getColumn(int[][] matrix, int columnArg) {
+        int columns = matrix[0].length;
+        int rows = matrix.length;
+        int[] result = new int[rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (columnArg == j) {
+                    result[i] = matrix[i][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    private static int[] getRow(int[][] matrix, int index) {
+        return matrix[index];
+    }
+
+    private static int multiplyVector(int[] m1, int[] m2) throws RuntimeException {
+        if (m1.length != m2.length) {
+            throw new RuntimeException("Matrix can not be multiplied");
+        }
+        int rows = m1.length;
+        int result = 0;
+        for (int i = 0; i < rows; i++) {
+            result+= m1[i] * m2[i];
         }
         return result;
     }
