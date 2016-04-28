@@ -164,35 +164,70 @@ public class Recursions {
 //        }
 //    }
 
-    public static int eval(String expr) {
-        return eval(expr, 0, expr.length());
-    }
+//    public static int eval(String expr) {
+//        return eval(expr, 0, expr.length());
+//    }
 
-    private static int eval(String expr, int from, int to) {
-        if (expr.charAt(from) == '(') {
-            return eval(expr, from + 1, to - 1);
-        } else {
-            int pos = from;
-            while (pos < to) {
-                if (Character.isDigit(expr.charAt(pos))) {
-                    pos++;
-                } else {
-                    int leftOperand = Integer.valueOf(expr.substring(from, pos));
-                    char operation = expr.charAt(pos);
-                    int rightOperand = eval(expr, pos + 1, to);
-                    switch (operation) {
-                        case '+':
-                            return leftOperand + rightOperand;
-                        case '-':
-                            return leftOperand - rightOperand;
-                        case '*':
-                            return leftOperand * rightOperand;
-                        case '/':
-                            return leftOperand / rightOperand;
-                    }
+//    private static int eval(String expr, int from, int to) {
+//        if (expr.charAt(from) == '(') {
+//            return eval(expr, from + 1, to - 1);
+//        } else {
+//            int pos = from;
+//            while (pos < to) {
+//                if (Character.isDigit(expr.charAt(pos))) {
+//                    pos++;
+//                } else {
+//                    int leftOperand = Integer.valueOf(expr.substring(from, pos));
+//                    char operation = expr.charAt(pos);
+//                    int rightOperand = eval(expr, pos + 1, to);
+//                    switch (operation) {
+//                        case '+':
+//                            return leftOperand + rightOperand;
+//                        case '-':
+//                            return leftOperand - rightOperand;
+//                        case '*':
+//                            return leftOperand * rightOperand;
+//                        case '/':
+//                            return leftOperand / rightOperand;
+//                    }
+//                }
+//            }
+//            return Integer.valueOf(expr.substring(from, to));
+//        }
+//    }
+
+    public static int[] quickSort(int[] array) {
+        if (array.length < 2) {
+            return array;
+        }
+        if (array.length == 2) {
+            int max = array[0] >= array[1] ? array[0] : array[1];
+            int min = array[0] < array[1] ? array[0] : array[1];
+            array[0] = min;
+            array[1] = max;
+            return array;
+        }
+        if (array.length > 2) {
+            int pivot = array[0];
+            int leftArrayLength = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] <= pivot) {
+                    leftArrayLength++;
                 }
             }
-            return Integer.valueOf(expr.substring(from, to));
+            int rightArrayLength = array.length - leftArrayLength;
+            int[] left = new int[leftArrayLength];
+            int[] right = new int[rightArrayLength];
+
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] <= pivot) {
+                    left[leftArrayLength-- - 1] = array[i];
+                } else {
+                    right[rightArrayLength-- - 1] = array[i];
+                }
+            }
+            return MyArrays.mergeTwoSortedArrays(quickSort(left), quickSort(right));
         }
+        return null;
     }
 }

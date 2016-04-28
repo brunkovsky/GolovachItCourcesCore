@@ -1,5 +1,6 @@
 package Procedural;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class MainRecursion {
@@ -35,6 +36,10 @@ public class MainRecursion {
 //        System.out.print("  help: " + help);
 //        System.out.print("  to: " + to);
 
-        System.out.println(Recursions.eval("121+33"));
+//        System.out.println(Recursions.eval("(1+3)*5"));
+
+        int[] ar1 = {7,5,6,10};
+        int[] ar2 = Recursions.quickSort(ar1);
+        System.out.println(Arrays.toString(ar2));
     }
 }
