@@ -3,7 +3,7 @@ package Procedural;
 public class MainDDS {
     public static void main(String[] args) {
 //        Node iter0 = MyDDS.generateIter0(8);
-        Node iter1 = MyDDS.generateIter1(3);
+        Node iter1 = MyDDS.generateIter1(5);
 //        Node recu0 = MyDDS.generateRecu0(8);
 //        Node recu1 = MyDDS.generateRecu1(9);
 
