@@ -14,7 +14,7 @@ public class MyDDS {
         if (size == 0) {
             return null;
         }
-        Node tail = new Node(size - 1, null);
+        Node tail = new Node((int)(Math.random() * 10), null);
         Node head = tail;
         for (int i = size - 1; i > 0; i--) {
             head.next = new Node((int)(Math.random() * 10), null);
