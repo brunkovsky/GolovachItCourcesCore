@@ -14,6 +14,6 @@ public class MainDDS {
 //        System.out.println("Size = " + MyDDS.getLength(iter1));
 //        System.out.println("Sum = " + MyDDS.getSum(iter1));
         System.out.println("Max = " + MyDDS.getMax(iter1));
-//        System.out.println("Min = " + MyDDS.getMin(iter1));
+        System.out.println("Min = " + MyDDS.getMin(iter1));
     }
 }

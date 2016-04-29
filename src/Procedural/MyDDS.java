@@ -17,7 +17,7 @@ public class MyDDS {
         Node tail = new Node(size - 1, null);
         Node head = tail;
         for (int i = size - 1; i > 0; i--) {
-            head.next = new Node(i - 1, null);
+            head.next = new Node((int)(Math.random() * 10), null);
             head = head.next;
         }
         return tail;
@@ -42,53 +42,27 @@ public class MyDDS {
     }
 
     public static int getLength(Node node) {
-//        int size = 0;
-//        while (node != null) {
-//            size = size + 1;
-//            node = node.next;
-//        }
-//        return size;
         return node == null ? 0 : 1 + getLength(node.next);
     }
 
     public static int getSum(Node node) {
-//        int sum = 0;
-//        while (node != null) {
-//            sum += node.value;
-//            node = node.next;
-//        }
-//        return sum;
         return node == null ? 0 : node.value + getSum(node.next);
     }
 
     public static int getMax(Node node) {
-//        if (node == null) {
-//            throw new IllegalArgumentException("arg can not be null");
-//        }
-//        int max = node.value;
-//        while (node != null) {
-//            max = node.value > max ? node.value : max;
-//            node = node.next;
-//        }
-//        return max;
-
-        if (node.value > getMax(node.next)) {
-            return node.value;
-        } else {
-            return node.value > node.next.value ? node.value : node.next.value;
+        int max = node.value;
+        if (node.next != null) {
+            max = getMax(node.next);
         }
+        return node.value > max ? node.value : max;
     }
 
     public static int getMin(Node node) {
-        if (node == null) {
-            throw new IllegalArgumentException("arg can not be null");
-        }
         int min = node.value;
-        while (node != null) {
-            min = node.value < min ? node.value : min;
-            node = node.next;
+        if (node.next != null) {
+            min = getMin(node.next);
         }
-        return min;
+        return node.value < min ? node.value : min;
     }
 
     public static Node copy(Node node) {
