@@ -15,11 +15,11 @@ public class MainDDS {
         System.out.println(MyDDS.toStringRec(iter1));
 //        System.out.println(MyDDS.toStringIter(recu0));
 //        System.out.println(MyDDS.toStringRec(recu1));
-//        System.out.println("Len = " + MyDDS.getLength(iter1));
-//        System.out.println("Sum = " + MyDDS.getSum(iter1));
-//        System.out.println("Max = " + MyDDS.getMax(iter1));
-//        System.out.println("Min = " + MyDDS.getMin(iter1));
-        iter1.remove(1);
-        System.out.println(MyDDS.toStringRec(iter1));
+        System.out.println("Len = " + SingleLLUtils_1.getLength(iter1));
+        System.out.println("Sum = " + SingleLLUtils_1.getSum(iter1));
+        System.out.println("Max = " + SingleLLUtils_1.getMax(iter1));
+        System.out.println("Min = " + SingleLLUtils_1.getMin(iter1));
+        Node iter2 = SingleLLUtils_2.add(iter1, 2, 11);
+        System.out.println(MyDDS.toStringRec(iter2));
     }
 }

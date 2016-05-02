@@ -5,17 +5,8 @@ public class Node {
     public Node next;
 
     public Node(int value, Node next) {
-        this.value = value;
+        this.value = value++;
         this.next = next;
-    }
-
-    public void remove(int element) {
-//        Node node = this;
-//        while (--element > 0) {
-//            node = node.next;
-//        }
-        Node node = this;
-        node = node.next;
     }
 
     @Override
