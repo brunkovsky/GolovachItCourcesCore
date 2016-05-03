@@ -1,6 +1,14 @@
 package Procedural;
 
 public class TreeNodeUtils_1 {
+    public static TreeNode generateFibTree(int number) {
+        if (number < 2) {
+            return new TreeNode(number, null, null);
+        } else {
+            return new TreeNode(number, generateFibTree(number - 1), generateFibTree(number - 2));
+        }
+    }
+
     public static int getHeight(TreeNode node) {
         if (node == null) {
             return 0;

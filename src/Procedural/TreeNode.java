@@ -15,8 +15,8 @@ public class TreeNode {
     public String toString() {
         return "TreeNode{" +
                 "value=" + value +
-                ", left=" + left +
-                ", right=" + right +
+                ", left=" + (left == null ? "0" : left) +
+                ", right=" + (right == null ? "0" : right) +
                 '}';
     }
 }

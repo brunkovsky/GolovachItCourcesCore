@@ -1,7 +1,5 @@
 package Procedural;
 
-import java.util.List;
-
 public class MainDDS {
     public static void main(String[] args) {
 //        Node iter0 = MyDDS.generateIter0(8);
@@ -21,13 +19,18 @@ public class MainDDS {
 //        System.out.println(MyDDS.toStringRec(iter2));
 //        Node iter3 = SingleLLUtils_2.remove(iter2, 5);
 //        System.out.println(MyDDS.toStringRec(iter3));
-//        TreeNode root = new TreeNode(1, new TreeNode(2, null, null), new TreeNode(3, new TreeNode(-4, null, new TreeNode(5, null, null)), null));
-        TreeNode root = new TreeNode(1, new TreeNode(1, null, null), new TreeNode(1, null, null));
+
+//        TreeNode root = new TreeNode(1, new TreeNode(1, null, null), new TreeNode(1, null, null));
+//        System.out.println(root);
+//        System.out.println("Size = " + TreeNodeUtils_1.getSize(root));
+//        System.out.println("Height = " + TreeNodeUtils_1.getHeight(root));
+//        System.out.println("Sum = " + TreeNodeUtils_1.getSum(root));
+//        System.out.println("Max = " + TreeNodeUtils_1.getMax(root));
+//        System.out.println("Min = " + TreeNodeUtils_1.getMin(root));
+
+        TreeNode root = TreeNodeUtils_1.generateFibTree(3);
         System.out.println(root);
-        System.out.println("Size = " + TreeNodeUtils_1.getSize(root));
         System.out.println("Height = " + TreeNodeUtils_1.getHeight(root));
         System.out.println("Sum = " + TreeNodeUtils_1.getSum(root));
-        System.out.println("Max = " + TreeNodeUtils_1.getMax(root));
-        System.out.println("Min = " + TreeNodeUtils_1.getMin(root));
     }
 }
