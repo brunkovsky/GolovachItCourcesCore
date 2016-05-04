@@ -13,7 +13,7 @@ public class Node {
     public String toString() {
         return "Node{" +
                 "value=" + value +
-                ", next=" + this.next.value +
+                ", next=" + next.value +
                 '}';
     }
 }
